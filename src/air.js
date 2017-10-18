@@ -14,11 +14,13 @@ let elevImgSrc = 'https://node.redfish.com/Documents/elevationServer/tiles/10/19
 class AirAttackers extends Model {
 
   setup () {
-    this.fbinterface = new FirebaseInterface(this, 'test1')
+
+    this.fbinterface = new FirebaseInterface(this, {databaseURL:'https://anyhazard.firebaseio.com', scenarioID:'st_wineCountry1_2312'})
     this.cmap = ColorMap.Jet
     this.refreshPatches = true
-    this.centerY = 38.7890694
-    this.centerX = -121.5323036
+    this.centerY = 38.298655
+    this.centerX = -122.38221
+    this.speedMultiplier = 1.0
     const imgtmp = new Image()
     imgtmp.crossOrigin = "Anonymous"
     imgtmp.onload = () => {
@@ -28,6 +30,8 @@ class AirAttackers extends Model {
       this.launchPlanes()
     }
     imgtmp.src = elevImgSrc
+    // scenario on FB
+    //this.watchForFBStuff()
   }
 
   refreshElevationColors () {
@@ -42,26 +46,26 @@ class AirAttackers extends Model {
     // SEATS
     let n = 0
     this.turtles.create(10, (t) => {
-      t.r = 1
+      t.r = 0.2
       t.x = this.centerX //Math.random() * 400 - 200
       t.y = this.centerY //Math.random() * 400 - 200
       t.z = 3 + 2 * n + this.maxZ
       t.size = 5
       t.color = 'green'
       t.airAttack = false
-      t.speed = 0.005
+      t.speed = 0.00005
       n = n + 1
     })
     // Air attack
     this.turtles.create(1, (t) => {
-      t.r = 1.2
+      t.r = 0.1
       t.x = this.centerX // t.r
       t.y = this.centerY // 0
       t.z = 3 + 2 * n + this.maxZ
       t.size = 10
       t.color = 'red'
       t.airAttack = true
-      t.speed = 0.007
+      t.speed = 0.00007
     })
   }
 
@@ -80,14 +84,14 @@ class AirAttackers extends Model {
       if (!(isNaN(qx) && isNaN(qy))) {
         t.faceXY(qx + this.centerX, qy + this.centerY)
       }
-      t.forward(t.speed)
+      t.forward(t.speed * this.speedMultiplier)
       t.patch.color = 'blue'
     })
   }
 }
 
 //const options = Model.defaultWorld(1, 80)
-const model = new AirAttackers(document.body, {minX:-180, maxX:-90, minY:0, maxY:90})
+const model = new AirAttackers(document.body, {minX:-180, maxX:-120, minY:0, maxY:90})
 model.setup()
 model.start()
 
