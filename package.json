@@ -1,0 +1,15 @@
+{
+  "name": "airattack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "asx": "github:backspaces/asx",
+    "asxtras": "github:m0ose/asxtras"
+  }
+}
