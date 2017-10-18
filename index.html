@@ -28,7 +28,7 @@
 </head>
 <body>
   <script>
-    let app = document.location.search.substring(1) || 'scripts/diffuse'
+    let app = document.location.search.substring(1) || 'src/air'
     // trailing / problem with SimpleHTTPServer
     // https://github.com/backspaces/asx/issues/11
     if (app.endsWith('/')) app = app.slice(0, -1)
