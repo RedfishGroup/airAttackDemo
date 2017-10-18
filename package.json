@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "asx": "github:backspaces/asx",
-    "asxtras": "github:m0ose/asxtras"
+    "asxtras": "github:m0ose/asxtras",
+    "coreas": "github:backspaces/CoreAS"
   }
 }
