@@ -1,9 +1,9 @@
-import Model from '../node_modules/CoreAS/src/Model.js'
-import RGBDataSet from '../node_modules/CoreAS/src/RGBDataSet.js'
+import ColorMap from '../node_modules/asx/src/ColorMap.js'
+import Model from '../node_modules/asx/src/Model.js'
+import util from '../node_modules/asx/src/util.js'
+import RGBDataSet from '../node_modules/asx/src/RGBDataSet.js'
+import Animator from '../node_modules/asx/src/Animator.js'
 import FirebaseInterface from '../node_modules/asxtras/src/FirebaseInterface.js'
-import ColorMap from '../node_modules/asxtras/src/ColorMap.js'
-import util from '../node_modules/asxtras/src/util.js'
-import Animator from '../node_modules/asxtras/src/Animator.js'
 
 //import {ColorMap, Model, util, RGBDataSet} from '../../node_modules/asx/dist/AS.module.js'
 
